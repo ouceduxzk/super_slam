@@ -1,11 +1,5 @@
 # SuperPoint-SLAM
 
-**UPDATE: This repo is no longer maintained now. Please refer to https://github.com/jiexiong2016/GCNv2_SLAM if you are intereseted in SLAM with deep learning image descriptors.**
-
-**NOTE: SuperPoint-SLAM is not guaranteed to outperform ORB-SLAM. It's just a trial combination of SuperPoint and ORB-SLAM. I release the code for people who wish to do some research about neural feature based SLAM.**
-
-This repository was forked from ORB-SLAM2 https://github.com/raulmur/ORB_SLAM2.  SuperPoint-SLAM is a modified version of ORB-SLAM2 which use SuperPoint as its feature detector and descriptor. The pre-trained model of SuperPoint  come from https://github.com/MagicLeapResearch/SuperPointPretrainedNetwork.
-
 ![overview](pic/overview.png)
 
 ![traj](pic/traj.png)
@@ -14,17 +8,14 @@ This repository was forked from ORB-SLAM2 https://github.com/raulmur/ORB_SLAM2. 
 
 See LICENSE file.
 
-## 2. Prerequisites
-We have tested the library in **Ubuntu 12.04**, **14.04** and **16.04**, but it should be easy to compile in other platforms. A powerful computer (e.g. i7) will ensure real-time performance and provide more stable and accurate results.
-
-### C++11 or C++0x Compiler
-We use the new thread and chrono functionalities of C++11.
+### C++14
+We use the new thread and chrono functionalities of C++14.
 
 ### Pangolin
 We use [Pangolin](https://github.com/stevenlovegrove/Pangolin) for visualization and user interface. Dowload and install instructions can be found at: https://github.com/stevenlovegrove/Pangolin.
 
 ### OpenCV
-We use [OpenCV](http://opencv.org) to manipulate images and features. Dowload and install instructions can be found at: http://opencv.org. **Required at leat 2.4.3. Tested with OpenCV 2.4.11 and OpenCV 3.2**.
+We use [OpenCV](http://opencv.org) to manipulate images and features. Dowload and install instructions can be found at: http://opencv.org. **Required at least OpenCV 3**.
 
 ### Eigen3
 Required by g2o (see below). Download and install instructions can be found at: http://eigen.tuxfamily.org. **Required at least 3.1.0**.
@@ -32,12 +23,16 @@ Required by g2o (see below). Download and install instructions can be found at: 
 ### DBoW3 and g2o (Included in Thirdparty folder)
 We use modified versions of [DBoW3](https://github.com/rmsalinas/DBow3) (instead of DBoW2) library to perform place recognition and [g2o](https://github.com/RainerKuemmerle/g2o) library to perform non-linear optimizations. Both modified libraries (which are BSD) are included in the *Thirdparty* folder.
 
+### G++ compiler 
+
+Use G++-8 as default to build pytorch 
+
 ### Libtorch
 
 We use Pytorch C++ API to implement SuperPoint model. It can be built as follows:
 
 ``` shell
-git clone --recursive -b v1.0.1 https://github.com/pytorch/pytorch
+git clone --recursive https://github.com/pytorch/pytorch
 cd pytorch && mkdir build && cd build
 python ../tools/build_libtorch.py
 ```
@@ -48,14 +43,6 @@ It may take quite a long time to download and build. Please wait with patience.
 
 ## 3. Building SuperPoint-SLAM library and examples
 
-Clone the repository:
-```
-git clone https://github.com/KinglittleQ/SuperPoint_SLAM.git SuperPoint_SLAM
-```
-
-We provide a script `build.sh` to build the *Thirdparty* libraries and *SuperPoint_SLAM*. Please make sure you have **installed all required dependencies** (see section 2). Execute:
-```
-cd SuperPoint_SLAM
 chmod +x build.sh
 ./build.sh
 ```
