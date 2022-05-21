@@ -1,4 +1,4 @@
-# SuperPoint-SLAM
+# Super-SLAM
 
 ![overview](pic/overview.png)
 
@@ -105,5 +105,3 @@ If you find this useful, please cite our paper.
   organization={IEEE}
 }
 ```
-
-# super_slam
