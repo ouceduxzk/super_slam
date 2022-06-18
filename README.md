@@ -14,7 +14,7 @@ We use the new thread and chrono functionalities of C++14.
 ### Pangolin
 We use [Pangolin](https://github.com/stevenlovegrove/Pangolin) for visualization and user interface. Dowload and install instructions can be found at: https://github.com/stevenlovegrove/Pangolin.
 
-### OpenCV
+### OpenCV 3
 We use [OpenCV](http://opencv.org) to manipulate images and features. Dowload and install instructions can be found at: http://opencv.org. **Required at least OpenCV 3**.
 
 ### Eigen3
@@ -43,6 +43,7 @@ It may take quite a long time to download and build. Please wait with patience.
 
 ## 3. Building SuperPoint-SLAM library and run 
 
+```
 chmod +x build.sh
 ./build.sh
 
